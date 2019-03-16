@@ -6,7 +6,7 @@ const GroupListItem = ({group}) => {
         <List.Item> 
             <List.Content>
                 <List.Header>{group.name}</List.Header>
-                <List.Description>At {group.Location} from {group.startTime}</List.Description>
+                <List.Description>At {group.Location} from </List.Description>
             </List.Content>
         </List.Item>
     )

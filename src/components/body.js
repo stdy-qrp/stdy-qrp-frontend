@@ -25,9 +25,6 @@ const Body = (props) => {
             creatorName: event.target.username.value,
             telegramGroup,
             Location: props.room,
-            startTime: new Date().toLocaleTimeString(),
-            active: true,
-            id: 2
         }
         props.changeGroup(newGroup)
         props.history.push('/')
