@@ -18,13 +18,10 @@ const Body = (props) => {
         setTelegramGroup(value)
     }
 
-    const addGroup =(event) => {
+    const addGroup = async (event) => {
         event.preventDefault()
         const newGroup = {
             name: event.target.groupname.value,
-            creatorName: event.target.username.value,
-            telegramGroup,
-            Location: props.room,
         }
         props.changeGroup(newGroup)
         props.history.push('/')

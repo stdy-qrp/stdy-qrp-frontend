@@ -15,7 +15,7 @@ const GroupList = (props) => {
                 Active Groups
                 </Header>
                 <List divided relaxed animated>
-                    {props.group.map(g => <GroupListItem group={g}/>)}
+                    {props.activeGroups.map(g => <GroupListItem group={g}/>)}
                 </List>
                 <Link to='/addgroup'>
                     <Button>Add new group</Button>
@@ -24,9 +24,18 @@ const GroupList = (props) => {
         </Grid>
     )
 }
+
+const activeGroups = (groups) => {
+    console.log('in activegroups')
+    console.log(groups)
+    const activeGroups = groups.filter(g => g.active === true)
+    return activeGroups
+}
 const mapStateToProps = (state) => {
+    console.log('state')
+    console.log(state)
     return{
-        group: state.group
+        activeGroups: activeGroups(state.group)
     }
 }
 

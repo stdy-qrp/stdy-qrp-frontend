@@ -1,4 +1,6 @@
-import React from 'react';
+import React,{useEffect} from 'react';
+import { connect } from 'react-redux'
+import {initGroups} from './reducers/groupReducer'
 import './App.css';
 import Body from './components/body'
 import GroupList from './components/GroupList'
@@ -9,7 +11,10 @@ import {
 } from 'react-router-dom'
 
 const  App = (props) => {
-  
+  useEffect(() => {    
+    props.initGroups()
+    },[])
+
   return (
     <Router>
       <div>
@@ -25,4 +30,4 @@ const  App = (props) => {
     );
 }
 
-export default App;
+export default connect(null, { initGroups })(App)

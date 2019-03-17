@@ -1,54 +1,51 @@
-const groups = [
-    {
-        name: 'FullStack tehtava 1 tukiryhma',
-        creatorName: 'user1',
-        Location: 'A111',
-        startTime: new Date(),
-        endTime: new Date(),
-        active: true,
-        id: 1
-    }
-]
-export const checkIfGroupActive = () => {
+import groupService from '../services/groups'
 
+export const inactivate = (id) => {
+    return{
+        type: 'INACTIVATE',
+        data: id
+    }
 }
 
 
 export const changeGroup = (group) => {
-    
-    return{
-        type:'ADD',
-        data: toObject(group)
+    return async dispatch => {
+        const newGroup = await groupService.createNew(group)
+        dispatch({
+            type: 'ADD',
+            data: newGroup
+        })
+    }
+}
+
+export const initGroups = () => {
+    return async dispatch => {
+        const groups = await groupService.getAll()
+        dispatch({
+            type: 'INIT_GROUPS',
+            data: groups
+        })
         
     }
 }
 
-const toObject = (group) => {
-    //get current time
-    const startTime = new Date() 
-     
-    
-    const groupObject = {
-        name: group.name,
-        creatorName: group.creatorName,
-        Location: group.Location,
-        startTime,
-        endTime: startTime.setHours(startTime.getHours() + 1),
-        active: true,
-        id: 1,
 
-    }
-    return groupObject
-}
-const groupReducer = (state = groups, action )=> {
+const groupReducer = (state = [], action )=> {
     switch(action.type){
         case 'ADD':
             console.log(action.data)
             return [...state, action.data]
         case 'INACTIVATE':
-            const time = Date.now()
-            const activeGroups = [...groups].filter(g => g.endTime < time)
-            return activeGroups
+            const id = action.data.id
+            const groupToChange = state.find(g => g.id === id)
+            const inactiveGroup = {
+                ...groupToChange,
+                active: false
+            }
+            return state.map(g => 
+                g.id === id ? inactiveGroup : g)
+        case 'INIT_GROUPS':
+                return action.data
         default:
             return state
     }

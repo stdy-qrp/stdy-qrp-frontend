@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "FullStack tehtava 1 tukiryhma",
+      "startTime": "10:58",
+      "endTime": "11:58",
+      "active": true,
+      "id": 1
+    },
+    {
+      "name": "FullStack tehtava 2 tukiryhma",
+      "startTime": "10:58",
+      "endTime": "11:58",
+      "active": true,
+      "id": 2
+    },
+    {
+      "name": "knitting 101 ",
+      "startTime": "2019-03-17T12:46:28.484Z",
+      "endTime": "2019-03-17T12:46:28.484Z",
+      "active": true,
+      "id": 3
+    },
+    {
+      "name": "Working on math",
+      "startTime": "2019-03-17T13:00:22.554Z",
+      "endTime": "2019-03-17T13:00:22.554Z",
+      "active": true,
+      "id": 4
+    }
+  ]
+}
