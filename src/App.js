@@ -5,6 +5,8 @@ import './App.css';
 import Body from './components/body'
 import GroupList from './components/GroupList'
 import HeaderBar from './components/HeaderBar'
+import DeleteGroup from './components/DeleteGroup'
+
 import {
   BrowserRouter as Router,
   Route, Link, Redirect, withRouter
@@ -14,6 +16,11 @@ const  App = (props) => {
   useEffect(() => {    
     props.initGroups()
     },[])
+
+    const groupById = (id) => {
+      console.log('finding group')
+      props.groups.find(group => group.id === Number(id))
+    }
 
   return (
     <Router>
@@ -25,9 +32,19 @@ const  App = (props) => {
         <Route exact path="/addgroup" render={() =>
           <Body/>
         } />
+        <Route exact path="/deleteGroup/:id" render={({match}) => 
+          <DeleteGroup group={groupById(match.params.id)} />
+        }/>
       </div>
     </Router>
     );
 }
 
-export default connect(null, { initGroups })(App)
+
+const mapStateToProps = (state) => {
+  return{
+      groups: state.group
+  }
+}
+
+export default connect(mapStateToProps, { initGroups })(App)
