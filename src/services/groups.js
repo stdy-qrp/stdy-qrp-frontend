@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:3001/groups'
+const baseUrl = 'http://localhost:3001/api'
 
 const getAll = async () => {
-    const response = await axios.get(baseUrl)
+    const response = await axios.get(`${baseUrl}/reservations`)
     return response.data
 }
 
@@ -18,7 +18,8 @@ const createNew = async group => {
         active: true
          } 
     console.log(object)
-    const response = await axios.post(baseUrl, object) 
+    const roomId = 1 // <- TODO: should come from the form
+    const response = await axios.post(`${baseUrl}/${roomId}/reservations`, object)
     console.log(response)
     return response.data
 }
