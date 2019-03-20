@@ -16,7 +16,7 @@ const GroupList = (props) => {
                 </Header>
                 {props.activeGroups.length < 1 ?  <p>No active groups. Maybe create a group? </p> : 
                 <List divided relaxed animated>
-                    {props.activeGroups.map(g => <GroupListItem group={g}/>)}
+                    {props.activeGroups.map(g => <GroupListItem key={g.id} group={g}/>)}
                 </List>
                 }
                 <Link to='/addgroup'>
