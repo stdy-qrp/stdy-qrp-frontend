@@ -3,7 +3,7 @@ import { Header, Icon } from 'semantic-ui-react'
 
 const HeaderBar = () => {
     return(
-        <Header as='h2'>
+        <Header as='h1' icon circular textAlign='center'>
           <Icon name='handshake'/>
           <Header.Content>
             QRP
