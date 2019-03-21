@@ -27,7 +27,7 @@ const GroupList = (props) => {
 }
 
 const activeGroups = (groups) => {
-    const activeGroups = groups.filter(g => g.active === true)
+    const activeGroups = groups
     return activeGroups
 }
 const mapStateToProps = (state) => {
