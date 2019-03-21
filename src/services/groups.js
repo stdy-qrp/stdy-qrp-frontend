@@ -1,5 +1,6 @@
 import axios from 'axios'
-
+import moment from 'moment'
+moment().format()
 const baseUrl = 'http://localhost:3001/api'
 
 const getAll = async () => {
@@ -8,18 +9,15 @@ const getAll = async () => {
 }
 
 const createNew = async group => {
-    console.log('creating new')
-    console.log(group)
-    const object = { 
-        name: group.name,
-        startTime: new Date(),
-    //end time needs tweaking. Needs to be an hour after startTime!
-        endTime: new Date(),
-        active: true
+    const reservation = { 
+        name: 'stdy-qrp',
+        startTime: moment().format('YYYY-MM-DD HH:mm'),
+        endTime: moment().add(1, 'hours').format('YYYY-MM-DD HH:mm'),
+        username: 'TheBadMF'
          } 
-    console.log(object)
-    const roomId = 1 // <- TODO: should come from the form
-    const response = await axios.post(`${baseUrl}/${roomId}/reservations`, object)
+    console.log('reservation:', reservation)
+    const roomId = '5c92aac21c9d4400003c60bf' // <- TODO: should come from the form
+    const response = await axios.post(`${baseUrl}/rooms/${roomId}/reservation`, reservation)
     console.log(response)
     return response.data
 }
