@@ -2,8 +2,7 @@ import React from 'react'
 import { List } from 'semantic-ui-react'
 import Moment from 'react-moment'
 import {
-  BrowserRouter as Router,
-  Route, Link, Redirect, withRouter
+  Link
 } from 'react-router-dom'
 
 const GroupListItem = ({ group }) => {

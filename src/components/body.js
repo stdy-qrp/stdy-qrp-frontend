@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React/* ,{ useState } */ from 'react'
 import { changeGroup } from '../reducers/groupReducer'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
@@ -12,10 +12,10 @@ import { Button
 
 const Body = (props) => {
   //state to save the telegram group selection
-  const [telegramGroup, setTelegramGroup] = useState('')
+  // const [telegramGroup, setTelegramGroup] = useState('')
 
-  const getTelegramGroup = (event,{ value }) => {
-    setTelegramGroup(value)
+  const getTelegramGroup = (/* event,{ value } */) => {
+    // setTelegramGroup(value)
   }
 
   const addGroup = async (event) => {

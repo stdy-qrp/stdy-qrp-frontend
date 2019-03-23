@@ -7,7 +7,6 @@ export const inactivate = (id) => {
   }
 }
 
-
 export const changeGroup = (group) => {
   return async dispatch => {
     const newGroup = await groupService.createNew(group)
@@ -41,13 +40,12 @@ export const removeGroup = (id) => {
   }
 }
 
-
 const groupReducer = (state = [], action ) => {
   switch(action.type){
   case 'ADD':
     console.log(action.data)
     return [...state, action.data]
-  case 'INACTIVATE':
+  case 'INACTIVATE': {
     const id = action.data.id
     const groupToChange = state.find(g => g.id === id)
     const inactiveGroup = {
@@ -56,6 +54,7 @@ const groupReducer = (state = [], action ) => {
     }
     return state.map(g =>
       g.id === id ? inactiveGroup : g)
+  }
   case 'INIT_GROUPS':
     return action.data
   case 'REMOVE':

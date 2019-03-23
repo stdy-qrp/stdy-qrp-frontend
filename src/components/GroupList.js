@@ -1,10 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { List ,Grid, Header, Button, Segment } from 'semantic-ui-react'
+import { List, Header, Button, Segment } from 'semantic-ui-react'
 import GroupListItem from './GroupListItem'
 import {
-  BrowserRouter as Router,
-  Route, Link, Redirect, withRouter
+  Link
 } from 'react-router-dom'
 
 const GroupList = (props) => {

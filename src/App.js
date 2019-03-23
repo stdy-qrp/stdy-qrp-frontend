@@ -6,12 +6,11 @@ import Body from './components/body'
 import GroupList from './components/GroupList'
 import HeaderBar from './components/HeaderBar'
 import DeleteGroup from './components/DeleteGroup'
-import { Container, Header, Grid, Segment } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 import {
   BrowserRouter as Router,
-  Route, Link, Redirect, withRouter
-} from 'react-router-dom'
+  Route } from 'react-router-dom'
 
 const  App = (props) => {
   useEffect(() => {
@@ -19,7 +18,6 @@ const  App = (props) => {
   },[])
 
   const groupById = (id) => props.groups.find(g => g.id === id)
-
 
   return (
     <Router>
