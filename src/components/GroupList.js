@@ -9,21 +9,12 @@ import {
 
 const GroupList = (props) => {
     return(
-<<<<<<< HEAD
-        <Grid  padded>
-            <Grid.Column centered>
-                <Header as="h2" textAlign="center">
-                Active Groups
-                </Header>
-                {props.activeGroups.length < 1 ?  <p>No active groups. Maybe create a group? </p> : 
-=======
     <Segment placeholder textAlign='center'>
          <Header as="h2" textAlign="center">
             Active Groups
         </Header>
-                 {props.activeGroups.length < 1 ?  
-                 <p>No active groups. Maybe create a group? </p> : 
->>>>>>> ec8a825339bc6711adda9333b9d945726749a185
+                 {props.activeGroups.length < 1 ?
+                 <p>No active groups. Maybe create a group? </p> :
                 <List divided relaxed animated>
                     {props.activeGroups.map(g => <GroupListItem key={g.id} group={g}/>)}
                 </List>
@@ -35,13 +26,8 @@ const GroupList = (props) => {
     )
 }
 
-<<<<<<< HEAD
 /*const activeGroups = (groups) => {
     const activeGroups = groups.filter(g => g.active === true)
-=======
-const activeGroups = (groups) => {
-    const activeGroups = groups
->>>>>>> ec8a825339bc6711adda9333b9d945726749a185
     return activeGroups
 }*/
 const mapStateToProps = (state) => {

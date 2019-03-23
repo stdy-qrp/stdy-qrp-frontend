@@ -14,12 +14,12 @@ import {
 } from 'react-router-dom'
 
 const  App = (props) => {
-  useEffect(() => {    
+  useEffect(() => {
     props.initGroups()
     },[])
 
     const groupById = (id) => props.groups.find(g => g.id === id)
-    
+
 
   return (
     <Router>
@@ -33,12 +33,12 @@ const  App = (props) => {
             <Route exact path="/addgroup" render={() =>
              <Body/>
              } />
-            <Route exact path="/deleteGroup/:id" render={({match}) => 
+            <Route exact path="/deleteGroup/:id" render={({match}) =>
               <DeleteGroup group={groupById(match.params.id)} />
            }/>
           </Grid.Column>
         </Grid>
-       
+
       </div>
     </Router>
     );
