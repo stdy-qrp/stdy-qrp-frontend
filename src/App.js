@@ -6,6 +6,7 @@ import Body from './components/body'
 import GroupList from './components/GroupList'
 import HeaderBar from './components/HeaderBar'
 import DeleteGroup from './components/DeleteGroup'
+import { Container, Header, Grid, Segment } from 'semantic-ui-react'
 
 import {
   BrowserRouter as Router,
@@ -24,15 +25,20 @@ const  App = (props) => {
     <Router>
       <div>
         <HeaderBar />
-        <Route exact path="/" render={() =>
+        <Grid container columns={1} relaxed stackable>
+          <Grid.Column>
+            <Route exact path="/" render={() =>
           <GroupList />
-        } />
-        <Route exact path="/addgroup" render={() =>
-          <Body/>
-        } />
-        <Route exact path="/deleteGroup/:id" render={({match}) => 
-          <DeleteGroup group={groupById(match.params.id)} />
-        }/>
+           } />
+            <Route exact path="/addgroup" render={() =>
+             <Body/>
+             } />
+            <Route exact path="/deleteGroup/:id" render={({match}) => 
+              <DeleteGroup group={groupById(match.params.id)} />
+           }/>
+          </Grid.Column>
+        </Grid>
+       
       </div>
     </Router>
     );
