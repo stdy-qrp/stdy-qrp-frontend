@@ -22,6 +22,8 @@ const Body = (props) => {
         event.preventDefault()
         const newGroup = {
             name: event.target.groupname.value,
+            username: event.target.username.value,
+
         }
         props.changeGroup(newGroup)
         props.history.push('/')

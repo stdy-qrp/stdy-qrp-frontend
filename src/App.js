@@ -17,10 +17,8 @@ const  App = (props) => {
     props.initGroups()
     },[])
 
-    const groupById = (id) => {
-      console.log('finding group')
-      props.groups.find(group => group.id === Number(id))
-    }
+    const groupById = (id) => props.groups.find(g => g.id === id)
+    
 
   return (
     <Router>

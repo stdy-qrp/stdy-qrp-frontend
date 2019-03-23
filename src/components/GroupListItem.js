@@ -1,5 +1,6 @@
 import React from 'react'
 import {List} from 'semantic-ui-react'
+import Moment from 'react-moment'
 import {
     BrowserRouter as Router,
     Route, Link, Redirect, withRouter
@@ -7,14 +8,20 @@ import {
 
 const GroupListItem = ({group}) => {
     return(
-        <Link to={`DeleteGroup/${group.id}`}>
+        
         <List.Item> 
             <List.Content>
-                <List.Header>{group.name}</List.Header>
-                <List.Description>At {group.Location} from </List.Description>
+                <Link to={`deleteGroup/${group.id}`}>
+                    <List.Header>{group.name}</List.Header>
+                </Link>
+                <List.Description>
+                At {group.Location} 
+                Start time: <Moment format="HH:mm DD/MM/YYYY"
+                >{group.startTime}</Moment> 
+                </List.Description>
             </List.Content>
         </List.Item>
-        </Link>
+        
     )
 }
 

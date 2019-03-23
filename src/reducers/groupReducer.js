@@ -29,6 +29,18 @@ export const initGroups = () => {
     }
 }
 
+export const removeGroup = (id) => {
+    return async dispatch => {
+        await groupService.remove(id)
+        dispatch({
+            type: 'REMOVE',
+            data:{
+                id
+            }
+        })
+    }
+}
+
 
 const groupReducer = (state = [], action )=> {
     switch(action.type){
@@ -46,6 +58,8 @@ const groupReducer = (state = [], action )=> {
                 g.id === id ? inactiveGroup : g)
         case 'INIT_GROUPS':
                 return action.data
+        case 'REMOVE':
+                return [...state].filter(g => g.id !== action.data.id)
         default:
             return state
     }

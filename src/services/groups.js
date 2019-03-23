@@ -1,26 +1,26 @@
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:3001/groups'
+const baseUrl = 'http://localhost:3001/api/reservations'
+const roomUrl = 'http://localhost:3001/api/rooms'
 
 const getAll = async () => {
     const response = await axios.get(baseUrl)
+    console.log(response.data)
     return response.data
 }
 
 const createNew = async group => {
-    console.log('creating new')
-    console.log(group)
     const object = { 
         name: group.name,
-        startTime: new Date(),
-    //end time needs tweaking. Needs to be an hour after startTime!
-        endTime: new Date(),
-        active: true
-         } 
-    console.log(object)
-    const response = await axios.post(baseUrl, object) 
-    console.log(response)
+        username: group.username,
+        } 
+    const response = await axios.post(`${roomUrl}/5c92aa5c1c9d4400003c60be/reservation`, object) 
     return response.data
 }
 
-export default { getAll, createNew }
+const remove = async id => {
+    const response = await axios.delete(`${baseUrl}/${id}`)
+    return response.data
+}
+
+export default { getAll, createNew, remove }

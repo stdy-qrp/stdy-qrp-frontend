@@ -9,8 +9,8 @@ import {
 
 const GroupList = (props) => {
     return(
-        <Grid verticalAlign='middle'>
-            <Grid.Column>
+        <Grid  padded>
+            <Grid.Column centered>
                 <Header as="h2" textAlign="center">
                 Active Groups
                 </Header>
@@ -27,13 +27,13 @@ const GroupList = (props) => {
     )
 }
 
-const activeGroups = (groups) => {
+/*const activeGroups = (groups) => {
     const activeGroups = groups.filter(g => g.active === true)
     return activeGroups
-}
+}*/
 const mapStateToProps = (state) => {
     return{
-        activeGroups: activeGroups(state.group)
+        activeGroups: state.group
     }
 }
 
