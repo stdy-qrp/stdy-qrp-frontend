@@ -1,7 +1,7 @@
-import React,{useEffect} from 'react';
+import React,{ useEffect } from 'react'
 import { connect } from 'react-redux'
-import {initGroups} from './reducers/groupReducer'
-import './App.css';
+import { initGroups } from './reducers/groupReducer'
+import './App.css'
 import Body from './components/body'
 import GroupList from './components/GroupList'
 import HeaderBar from './components/HeaderBar'
@@ -16,9 +16,9 @@ import {
 const  App = (props) => {
   useEffect(() => {
     props.initGroups()
-    },[])
+  },[])
 
-    const groupById = (id) => props.groups.find(g => g.id === id)
+  const groupById = (id) => props.groups.find(g => g.id === id)
 
 
   return (
@@ -28,26 +28,26 @@ const  App = (props) => {
         <Grid container columns={1} relaxed stackable>
           <Grid.Column>
             <Route exact path="/" render={() =>
-          <GroupList />
-           } />
+              <GroupList />
+            } />
             <Route exact path="/addgroup" render={() =>
-             <Body/>
-             } />
-            <Route exact path="/deleteGroup/:id" render={({match}) =>
+              <Body/>
+            } />
+            <Route exact path="/deleteGroup/:id" render={({ match }) =>
               <DeleteGroup group={groupById(match.params.id)} />
-           }/>
+            }/>
           </Grid.Column>
         </Grid>
 
       </div>
     </Router>
-    );
+  )
 }
 
 
 const mapStateToProps = (state) => {
   return{
-      groups: state.group
+    groups: state.group
   }
 }
 

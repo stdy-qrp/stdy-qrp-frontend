@@ -1,12 +1,12 @@
-import {createStore, applyMiddleware, combineReducers} from 'redux'
-import thunk from 'redux-thunk';
+import { createStore, applyMiddleware, combineReducers } from 'redux'
+import thunk from 'redux-thunk'
 import groupReducer from './reducers/groupReducer'
 import roomReducer from './reducers/roomReducer'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 const reducer = combineReducers({
-    group: groupReducer,
-    room: roomReducer
+  group: groupReducer,
+  room: roomReducer
 })
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 
