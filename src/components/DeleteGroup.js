@@ -3,6 +3,7 @@ import { Grid, Header, Button } from 'semantic-ui-react'
 import { removeGroup } from '../reducers/groupReducer'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const DeleteGroup = (props) => {
   console.log(props)
@@ -18,8 +19,11 @@ const DeleteGroup = (props) => {
                 Delete Group
         </Header>
         <p>You are deleting group:  {props.group.name}</p>
+       <Link to='/'>
+         <Button>Cancel</Button>
+       </Link>
         <Button
-          onClick={() => remove(props.group.id)}
+          onClick={() => remove(props.group.id)} negative
         >Delete</Button>
       </Grid.Column>
     </Grid>
