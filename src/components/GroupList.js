@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import {getRoom} from '../reducers/roomReducer'
 import { List, Header, Button, Segment } from 'semantic-ui-react'
 import GroupListItem from './GroupListItem'
 import {
@@ -33,5 +34,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-  null
+  { getRoom }
 )(GroupList)
