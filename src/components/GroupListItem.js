@@ -13,7 +13,7 @@ const GroupListItem = ({ group }) => {
           <List.Header>{group.name}</List.Header>
         </Link>
         <List.Description>
-          At {group.Location}<br/>
+          {group.room && (<>{group.room.name}<br/></>)}
           <Moment format="HH:mm">{group.startTime}</Moment>
           -
           <Moment format="HH:mm">{group.endTime}</Moment>
