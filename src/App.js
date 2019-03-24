@@ -20,7 +20,7 @@ const  App = (props) => {
 
     const groupById = (id) => props.groups.find(g => g.id === id)
     
-
+    //add here the part about getting room id from the url
   return (
     <Router>
       <div>
