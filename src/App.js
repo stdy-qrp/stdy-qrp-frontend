@@ -1,13 +1,14 @@
 import React,{ useEffect } from 'react'
 import { connect } from 'react-redux'
 import { initGroups } from './reducers/groupReducer'
-import { getRoom } from './reducers/roomReducer'
+import { getRoom, initRooms } from './reducers/roomReducer'
 import './App.css'
 import Body from './components/body'
 import GroupList from './components/GroupList'
 import HeaderBar from './components/HeaderBar'
 import DeleteGroup from './components/DeleteGroup'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Message, Button, Segment } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 import {
   BrowserRouter as Router,
@@ -17,6 +18,7 @@ const  App = (props) => {
   console.log(props)
   useEffect(() => {
     props.initGroups()
+    props.initRooms()
     getParams()
 
   },[])
@@ -30,11 +32,25 @@ const  App = (props) => {
     }
   }
   const groupById = (id) => props.groups.find(g => g.id === id)
+  
+  const showInfo = () => (
+    <Segment>
+      <Message positive>
+       {props.selectedRoom ? <Message.Header>Looks like you're in room {props.selectedRoom.name}</Message.Header>
+        :  <Link to={'/selectroom'}>
+          <Button primary>Start by choosing a room</Button>
+      </Link>
+     }
+      </Message>
+    </Segment>
+
+)
 
   return (
     <Router>
       <div>
         <HeaderBar />
+       {showInfo()}
         <Grid container columns={1} relaxed stackable>
           <Grid.Column>
             <Route exact path='/' render = {({match}) =>
@@ -46,6 +62,14 @@ const  App = (props) => {
             <Route exact path="/deleteGroup/:id" render={({ match }) =>
               <DeleteGroup group={groupById(match.params.id)} />
             }/>
+            <Route exact path="/selectroom" render={({ match }) =>
+              <div>
+                <h3>TODO: selectRoom component</h3>
+                <Link to={'/'}>
+                  <Button default>Cancel</Button>
+                </Link>
+              </div>
+            } />
           </Grid.Column>
         </Grid>
 
@@ -58,13 +82,15 @@ const  App = (props) => {
 const mapStateToProps = (state) => {
   return{
     groups: state.group,
-    rooms: state.room
+    rooms: state.resources.rooms,
+    selectedRoom: state.resources.selectedRoom
   }
 }
 
 const mapDispatchToProps = {
   initGroups,
-  getRoom
+  getRoom,
+  initRooms
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
