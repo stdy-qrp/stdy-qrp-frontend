@@ -19,9 +19,9 @@ const DeleteGroup = (props) => {
                 Delete Group
         </Header>
         <p>You are deleting group:  {props.group.name}</p>
-       <Link to='/'>
-         <Button>Cancel</Button>
-       </Link>
+        <Link to='/'>
+          <Button>Cancel</Button>
+        </Link>
         <Button
           onClick={() => remove(props.group.id)} negative
         >Delete</Button>

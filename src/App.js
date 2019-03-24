@@ -24,7 +24,7 @@ const  App = (props) => {
   },[])
 
   const getParams = () => {
-    const searchParams = new URLSearchParams(window.location.search);
+    const searchParams = new URLSearchParams(window.location.search)
     const room = searchParams.get('room')
     console.log(room)
     if(room){
@@ -32,19 +32,19 @@ const  App = (props) => {
     }
   }
   const groupById = (id) => props.groups.find(g => g.id === id)
-  
+
   const showInfo = () => (
     <Segment>
       <Message positive>
-       {props.selectedRoom ? <Message.Header>Looks like you're in {props.selectedRoom.name}</Message.Header>
-        :  <Link to={'/selectroom'}>
-          <Button primary>Start by choosing a room</Button>
-      </Link>
-     }
+        {props.selectedRoom ? <Message.Header>Looks like you're in {props.selectedRoom.name}</Message.Header>
+          :  <Link to={'/selectroom'}>
+            <Button primary>Start by choosing a room</Button>
+          </Link>
+        }
       </Message>
     </Segment>
 
-)
+  )
 
   return (
     <Router>
@@ -52,10 +52,10 @@ const  App = (props) => {
         <HeaderBar />
         <Grid container columns={1} relaxed stackable>
           <Grid.Column>
-            <Route exact path='/' render = {({match}) =>
+            <Route exact path='/' render = {({ match }) =>
               <div>
-              {showInfo()}
-                <GroupList /> 
+                {showInfo()}
+                <GroupList />
               </div>
             }/>
             <Route exact path="/addgroup" render={({ match }) =>
