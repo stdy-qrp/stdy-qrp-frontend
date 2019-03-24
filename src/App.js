@@ -50,11 +50,13 @@ const  App = (props) => {
     <Router>
       <div>
         <HeaderBar />
-       {showInfo()}
         <Grid container columns={1} relaxed stackable>
           <Grid.Column>
             <Route exact path='/' render = {({match}) =>
-              <GroupList /> 
+              <div>
+              {showInfo()}
+                <GroupList /> 
+              </div>
             }/>
             <Route exact path="/addgroup" render={({ match }) =>
               <Body />

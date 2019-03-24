@@ -20,7 +20,7 @@ const GroupList = (props) => {
         </List>
       }
       <Link to={'/addgroup'}>
-        <Button primary>Add new group</Button>
+        <Button disabled={props.selectedRoom === null} primary>Add new group</Button>
       </Link>
     </Segment>
   )
@@ -28,7 +28,8 @@ const GroupList = (props) => {
 
 const mapStateToProps = (state) => {
   return{
-    activeGroups: state.group
+    activeGroups: state.group,
+    selectedRoom: state.resources.selectedRoom
   }
 }
 
