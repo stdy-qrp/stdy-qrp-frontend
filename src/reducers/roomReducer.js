@@ -19,12 +19,16 @@ export const getRoom = (code) => {
     })
   }
 }
-const groupReducer = (state = [], action ) => {
+const initState = {
+  selectedRoom: null,
+  rooms: []
+}
+const groupReducer = (state = initState, action) => {
   switch(action.type){
   case 'INIT':
-    return action.data
+    return { ...state, rooms: action.data }
   case 'CHANGE': 
-    return action.data
+    return { ...state, selectedRoom: action.data }
   default:
     return state
   }
