@@ -1,26 +1,29 @@
-import React,{useEffect} from 'react';
+import React,{ useEffect } from 'react'
 import { connect } from 'react-redux'
-import {initGroups} from './reducers/groupReducer'
-import './App.css';
+import { initGroups } from './reducers/groupReducer'
+import { initRooms } from './reducers/roomReducer'
+import './App.css'
 import Body from './components/body'
 import GroupList from './components/GroupList'
 import HeaderBar from './components/HeaderBar'
 import DeleteGroup from './components/DeleteGroup'
-import { Container, Header, Grid, Segment } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 import {
   BrowserRouter as Router,
-  Route, Link, Redirect, withRouter
-} from 'react-router-dom'
+  Route } from 'react-router-dom'
 
 const  App = (props) => {
-  useEffect(() => {    
+  console.log(props)
+  useEffect(() => {
     props.initGroups()
-    },[])
+    props.initRooms()
 
-    const groupById = (id) => props.groups.find(g => g.id === id)
-    
-    //add here the part about getting room id from the url
+  },[])
+
+  const groupById = (id) => props.groups.find(g => g.id === id)
+  const roomByCode = (code) => props.rooms.find(r => r.code === code)
+
   return (
     <Router>
       <div>
@@ -28,27 +31,36 @@ const  App = (props) => {
         <Grid container columns={1} relaxed stackable>
           <Grid.Column>
             <Route exact path="/" render={() =>
-          <GroupList />
-           } />
-            <Route exact path="/addgroup" render={() =>
-             <Body/>
-             } />
-            <Route exact path="/deleteGroup/:id" render={({match}) => 
+              <GroupList />
+            } />
+            <Route exact path="/:code" render= {({ match }) => 
+              <GroupList thisRoom={roomByCode(match.params.code)} /> 
+            }/>
+            <Route exact path="/addgroup" render={({ match }) =>
+              <Body />
+            } />
+            <Route exact path="/deleteGroup/:id" render={({ match }) =>
               <DeleteGroup group={groupById(match.params.id)} />
-           }/>
+            }/>
           </Grid.Column>
         </Grid>
-       
+
       </div>
     </Router>
-    );
+  )
 }
 
 
 const mapStateToProps = (state) => {
   return{
-      groups: state.group
+    groups: state.group,
+    rooms: state.room
   }
 }
 
-export default connect(mapStateToProps, { initGroups })(App)
+const mapDispatchToProps = {
+  initGroups,
+  initRooms,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

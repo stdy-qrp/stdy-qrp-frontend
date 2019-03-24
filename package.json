@@ -25,8 +25,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server -p3001 db.json"
+    "server": "json-server -p3001 db.json",
+    "lint": "eslint ./src"
   },
+  "proxy": "http://localhost:3001",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -38,6 +40,7 @@
   ],
   "devDependencies": {
     "deep-freeze": "0.0.1",
+    "eslint-plugin-jest": "^22.4.1",
     "nodemon": "^1.18.10"
   }
 }
