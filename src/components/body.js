@@ -1,7 +1,7 @@
 import React/* ,{ useState } */ from 'react'
 import { changeGroup } from '../reducers/groupReducer'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { Button
   ,Grid
   ,Header
@@ -16,10 +16,9 @@ const Body = (props) => {
     event.preventDefault()
     const newGroup = {
       name: event.target.groupname.value,
-      username: event.target.username.value,
-
+      username: event.target.username.value
     }
-    props.changeGroup(newGroup)
+    props.changeGroup(newGroup, props.selectedRoom.code)
     props.history.push('/')
 
   }
@@ -48,7 +47,10 @@ const Body = (props) => {
                 selection
               />
             </Form.Field>
-            <Button type='submit'>Add</Button>
+            <Link to='/'>
+              <Button>Cancel</Button>
+            </Link>
+            <Button disabled={props.selectedRoom === null} type='submit' positive>Add</Button>
           </Form>
         </Segment>
       </Grid.Column>
@@ -59,7 +61,7 @@ const Body = (props) => {
 const mapStateToProps = (state) => {
   return{
     group: state.group,
-    room: state.room
+    selectedRoom: state.resources.selectedRoom
   }
 }
 
