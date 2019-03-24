@@ -22,7 +22,7 @@ const  App = (props) => {
   },[])
 
   const getParams = () => {
-    const searchParams = new URLSearchParams(window.location.pathname);
+    const searchParams = new URLSearchParams(window.location.search);
     const room = searchParams.get('room')
     console.log(room)
     if(room){
