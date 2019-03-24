@@ -36,7 +36,7 @@ const  App = (props) => {
   const showInfo = () => (
     <Segment>
       <Message positive>
-       {props.selectedRoom ? <Message.Header>Looks like you're in room {props.selectedRoom.name}</Message.Header>
+       {props.selectedRoom ? <Message.Header>Looks like you're in {props.selectedRoom.name}</Message.Header>
         :  <Link to={'/selectroom'}>
           <Button primary>Start by choosing a room</Button>
       </Link>
@@ -64,9 +64,10 @@ const  App = (props) => {
             }/>
             <Route exact path="/selectroom" render={({ match }) =>
               <div>
-                <h3>TODO: selectRoom component</h3>
+                <h3>Under construction!</h3>
+                <p>Use QR code :)</p>
                 <Link to={'/'}>
-                  <Button default>Cancel</Button>
+                  <Button default>Back</Button>
                 </Link>
               </div>
             } />
