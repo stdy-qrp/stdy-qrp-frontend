@@ -1,6 +1,7 @@
 import React,{ useEffect } from 'react'
 import { connect } from 'react-redux'
 import { initGroups } from './reducers/groupReducer'
+import { getRoom } from './reducers/roomReducer'
 import './App.css'
 import Body from './components/body'
 import GroupList from './components/GroupList'
@@ -16,9 +17,18 @@ const  App = (props) => {
   console.log(props)
   useEffect(() => {
     props.initGroups()
+    getParams()
 
   },[])
 
+  const getParams = () => {
+    const searchParams = new URLSearchParams(window.location.pathname);
+    const room = searchParams.get('room')
+    console.log(room)
+    if(room){
+      props.getRoom(room)
+    }
+  }
   const groupById = (id) => props.groups.find(g => g.id === id)
 
   return (
@@ -29,9 +39,6 @@ const  App = (props) => {
           <Grid.Column>
             <Route exact path='/' render = {({match}) =>
               <GroupList /> 
-            }/>
-            <Route exact path="/:code" render= {({ match }) => 
-              <GroupList thisRoom={match.params.code} /> 
             }/>
             <Route exact path="/addgroup" render={({ match }) =>
               <Body />
@@ -57,6 +64,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   initGroups,
+  getRoom
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
