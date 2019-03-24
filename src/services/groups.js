@@ -17,13 +17,13 @@ const getRoom = async (code) => {
     return response.data
 }
 
-const createNew = async group => {
+const createNew = async (group, roomId) => {
   const object = {
     name: group.name,
     username: group.username,
   }
 
-  const roomId = '5c92aac21c9d4400003c60bf' // <- TODO: should come from the form
+  // const roomId = '5c92aac21c9d4400003c60bf' // <- TODO: should come from the form
   const response = await axios.post(`${baseUrl}/rooms/${roomId}/reservation`, object)
   return response.data
 }

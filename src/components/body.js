@@ -18,7 +18,7 @@ const Body = (props) => {
       name: event.target.groupname.value,
       username: event.target.username.value
     }
-    props.changeGroup(newGroup, props.selectedRoom.code)
+    props.changeGroup(newGroup, props.selectedRoom.id)
     props.history.push('/')
 
   }

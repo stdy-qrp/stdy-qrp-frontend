@@ -7,9 +7,9 @@ export const inactivate = (id) => {
   }
 }
 
-export const changeGroup = (group) => {
+export const changeGroup = (group, roomId) => {
   return async dispatch => {
-    const newGroup = await groupService.createNew(group)
+    const newGroup = await groupService.createNew(group, roomId)
     dispatch({
       type: 'ADD',
       data: newGroup
