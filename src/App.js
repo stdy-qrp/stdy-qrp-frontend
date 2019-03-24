@@ -36,7 +36,7 @@ const  App = (props) => {
   const showInfo = () => (
     <Segment>
       <Message positive>
-        {props.selectedRoom ? <Message.Header>Looks like you're in {props.selectedRoom.name}</Message.Header>
+        {props.selectedRoom ? <Message.Header>Looks like you&apos;re in {props.selectedRoom.name}</Message.Header>
           :  <Link to={'/selectroom'}>
             <Button primary>Start by choosing a room</Button>
           </Link>
@@ -52,19 +52,19 @@ const  App = (props) => {
         <HeaderBar />
         <Grid container columns={1} relaxed stackable>
           <Grid.Column>
-            <Route exact path='/' render = {({ match }) =>
+            <Route exact path='/' render = {(/* { match } */) =>
               <div>
                 {showInfo()}
                 <GroupList />
               </div>
             }/>
-            <Route exact path="/addgroup" render={({ match }) =>
+            <Route exact path="/addgroup" render={(/* { match } */) =>
               <Body />
             } />
             <Route exact path="/deleteGroup/:id" render={({ match }) =>
               <DeleteGroup group={groupById(match.params.id)} />
             }/>
-            <Route exact path="/selectroom" render={({ match }) =>
+            <Route exact path="/selectroom" render={(/* { match } */) =>
               <div>
                 <h3>Under construction!</h3>
                 <p>Use QR code :)</p>
