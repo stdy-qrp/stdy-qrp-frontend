@@ -21,6 +21,9 @@ const GroupDetails = (props) => {
   return (
     <Grid verticalAlign='middle'>
       <Grid.Column>
+        <Header>
+          Reservation Details
+        </Header>
         <Segment>
           <Header as="h2" textAlign="center">
             {group.name}
@@ -36,13 +39,17 @@ const GroupDetails = (props) => {
             </List.Content>
           </List.Item>
         </Segment>
-
-        <p>You are ending group: {group.name}</p>
+        <Header>
+          Ending reservation
+        </Header>
+        <Segment>
+          <p>To end this reservation now, click the 'end' button</p>
+          <p>Reservation will end immediately, and room is freed for other groups</p>
+          <Button onClick={() => remove(group.id)} negative>End</Button>
+        </Segment>
         <Link to='/'>
-          <Button>Cancel</Button>
+          <Button>Go Back</Button>
         </Link>
-        <Button onClick={() => remove(group.id)} negative>End</Button>
-
       </Grid.Column>
     </Grid>
   )
