@@ -28,7 +28,6 @@ const  App = (props) => {
       props.getRoom(room)
     }
   }
-  const groupById = (id) => props.groups.find(g => g.id === id)
 
   const showInfo = () => (
     <Segment>
@@ -58,7 +57,7 @@ const  App = (props) => {
               <Body />
             } />
             <Route exact path="/details/:id" render={({ match }) =>
-              <GroupDetails group={groupById(match.params.id)} />
+              <GroupDetails groupId={match.params.id} />
             }/>
             <Route exact path="/selectroom" render={(/* { match } */) =>
               <div>

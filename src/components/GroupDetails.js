@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
 
 const GroupDetails = (props) => {
+  const { group } = props
+
   const remove = (id) => {
     props.removeGroup(id)
     props.history.push('/')
   }
-
-  const { group } = props
 
   return (
     <Grid verticalAlign='middle'>
@@ -46,11 +46,19 @@ const GroupDetails = (props) => {
   )
 }
 
+const getGroupById = (groups, id) => groups.find(g => g.id === id)
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    group: getGroupById(state.groups, ownProps.groupId),
+  }
+}
+
 const mapDispatchToProps =  {
   removeGroup
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(withRouter(GroupDetails))
