@@ -10,6 +10,7 @@ const GroupDetails = (props) => {
   const { group } = props
 
   if (!group) {
+    // Wait for asynchronous operation
     return null
   }
 
