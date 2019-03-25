@@ -20,7 +20,6 @@ const GroupListItem = ({ group }) => {
         </List.Description>
       </List.Content>
     </List.Item>
-
   )
 }
 
