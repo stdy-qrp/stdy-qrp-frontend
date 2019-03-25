@@ -23,7 +23,6 @@ const createNew = async (group, roomId) => {
     username: group.username,
   }
 
-  // const roomId = '5c92aac21c9d4400003c60bf' // <- TODO: should come from the form
   const response = await axios.post(`${baseUrl}/rooms/${roomId}/reservation`, object)
   return response.data
 }
