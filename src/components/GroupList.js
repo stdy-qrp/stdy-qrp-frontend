@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom'
 
 const GroupList = (props) => {
-  return(
+  return (
     <Segment placeholder textAlign='center'>
       <Header as="h2" textAlign="center">
             Active Groups
@@ -27,7 +27,7 @@ const GroupList = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  return{
+  return {
     activeGroups: state.group,
     selectedRoom: state.resources.selectedRoom
   }

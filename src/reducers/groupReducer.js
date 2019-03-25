@@ -43,7 +43,6 @@ export const removeGroup = (id) => {
 const groupReducer = (state = [], action ) => {
   switch(action.type){
   case 'ADD':
-    console.log(action.data)
     return [...state, action.data]
   case 'INACTIVATE': {
     const id = action.data.id

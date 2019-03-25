@@ -15,7 +15,6 @@ import {
   Route } from 'react-router-dom'
 
 const  App = (props) => {
-  console.log(props)
   useEffect(() => {
     props.initGroups()
     props.initRooms()
@@ -26,8 +25,7 @@ const  App = (props) => {
   const getParams = () => {
     const searchParams = new URLSearchParams(window.location.search)
     const room = searchParams.get('room')
-    console.log(room)
-    if(room){
+    if (room) {
       props.getRoom(room)
     }
   }
@@ -43,7 +41,6 @@ const  App = (props) => {
         }
       </Message>
     </Segment>
-
   )
 
   return (
@@ -75,12 +72,10 @@ const  App = (props) => {
             } />
           </Grid.Column>
         </Grid>
-
       </div>
     </Router>
   )
 }
-
 
 const mapStateToProps = (state) => {
   return{

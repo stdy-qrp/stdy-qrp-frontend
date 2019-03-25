@@ -6,13 +6,12 @@ import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 const DeleteGroup = (props) => {
-  console.log(props)
   const remove = (id) => {
     props.removeGroup(id)
     props.history.push('/')
-
   }
-  return(
+
+  return (
     <Grid verticalAlign='middle'>
       <Grid.Column>
         <Header as="h2" textAlign="center">
@@ -29,9 +28,11 @@ const DeleteGroup = (props) => {
     </Grid>
   )
 }
+
 const mapDispatchToProps =  {
   removeGroup
 }
+
 export default connect(
   null,
   mapDispatchToProps

@@ -12,6 +12,7 @@ const getRooms = async () => {
   const response = await axios.get(`${baseUrl}/rooms`)
   return response.data
 }
+
 const getRoom = async (code) => {
   const response = await axios.get(`${baseUrl}/rooms/${code}`)
   return response.data

@@ -19,6 +19,7 @@ export const getRoom = (code) => {
     })
   }
 }
+
 const initState = {
   selectedRoom: null,
   rooms: []
