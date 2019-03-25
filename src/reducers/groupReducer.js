@@ -24,7 +24,6 @@ export const initGroups = () => {
       type: 'INIT_GROUPS',
       data: groups
     })
-
   }
 }
 

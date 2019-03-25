@@ -2,13 +2,7 @@ import React/* ,{ useState } */ from 'react'
 import { changeGroup } from '../reducers/groupReducer'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
-import { Button
-  ,Grid
-  ,Header
-  ,Segment
-  ,Form
-  ,Dropdown } from 'semantic-ui-react'
-
+import { Button, Grid, Header, Segment, Form, Dropdown } from 'semantic-ui-react'
 
 const Body = (props) => {
 
@@ -20,13 +14,13 @@ const Body = (props) => {
     }
     props.changeGroup(newGroup, props.selectedRoom.id)
     props.history.push('/')
-
   }
+
   return(
     <Grid centered verticalAlign='middle'>
       <Grid.Column>
         <Header as="h2" textAlign="center">
-                Add A Group
+          Add A Group
         </Header>
         <Segment>
           <Form onSubmit={addGroup}>
@@ -60,7 +54,6 @@ const Body = (props) => {
 
 const mapStateToProps = (state) => {
   return{
-    group: state.group,
     selectedRoom: state.resources.selectedRoom
   }
 }
