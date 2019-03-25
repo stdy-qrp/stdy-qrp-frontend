@@ -28,7 +28,7 @@ const GroupList = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    activeGroups: state.group,
+    activeGroups: state.groups,
     selectedRoom: state.resources.selectedRoom
   }
 }

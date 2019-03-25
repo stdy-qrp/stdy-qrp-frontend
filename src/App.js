@@ -77,9 +77,7 @@ const  App = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  return{
-    groups: state.group,
-    rooms: state.resources.rooms,
+  return {
     selectedRoom: state.resources.selectedRoom
   }
 }

@@ -5,7 +5,7 @@ import roomReducer from './reducers/roomReducer'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 const reducer = combineReducers({
-  group: groupReducer,
+  groups: groupReducer,
   resources: roomReducer
 })
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
