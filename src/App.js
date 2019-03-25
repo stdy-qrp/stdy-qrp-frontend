@@ -32,11 +32,13 @@ const  App = (props) => {
   const showInfo = () => (
     <Segment>
       <Message positive>
-        {props.selectedRoom ? <Message.Header>Looks like you&apos;re in {props.selectedRoom.name}</Message.Header>
-          :  <Link to={'/selectroom'}>
+        {props.selectedRoom ? (
+          <Message.Header>Looks like you&apos;re in {props.selectedRoom.name}</Message.Header>
+        ) : (
+          <Link to={'/selectroom'}>
             <Button primary>Start by choosing a room</Button>
           </Link>
-        }
+        )}
       </Message>
     </Segment>
   )
