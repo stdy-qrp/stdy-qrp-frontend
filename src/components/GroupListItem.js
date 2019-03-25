@@ -9,7 +9,7 @@ const GroupListItem = ({ group }) => {
   return(
     <List.Item>
       <List.Content>
-        <Link to={`deleteGroup/${group.id}`}>
+        <Link to={`details/${group.id}`}>
           <List.Header>{group.name}</List.Header>
         </Link>
         <List.Description>

@@ -6,7 +6,7 @@ import './App.css'
 import Body from './components/body'
 import GroupList from './components/GroupList'
 import HeaderBar from './components/HeaderBar'
-import DeleteGroup from './components/DeleteGroup'
+import GroupDetails from './components/GroupDetails'
 import { Grid, Message, Button, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
@@ -58,8 +58,8 @@ const  App = (props) => {
             <Route exact path="/addgroup" render={(/* { match } */) =>
               <Body />
             } />
-            <Route exact path="/deleteGroup/:id" render={({ match }) =>
-              <DeleteGroup group={groupById(match.params.id)} />
+            <Route exact path="/details/:id" render={({ match }) =>
+              <GroupDetails group={groupById(match.params.id)} />
             }/>
             <Route exact path="/selectroom" render={(/* { match } */) =>
               <div>

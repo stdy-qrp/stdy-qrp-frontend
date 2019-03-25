@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
-const DeleteGroup = (props) => {
+const GroupDetails = (props) => {
   const remove = (id) => {
     props.removeGroup(id)
     props.history.push('/')
@@ -15,9 +15,9 @@ const DeleteGroup = (props) => {
     <Grid verticalAlign='middle'>
       <Grid.Column>
         <Header as="h2" textAlign="center">
-                Delete Group
+          Delete Group
         </Header>
-        <p>You are deleting group:  {props.group.name}</p>
+        <p>You are deleting group: {props.group.name}</p>
         <Link to='/'>
           <Button>Cancel</Button>
         </Link>
@@ -36,4 +36,4 @@ const mapDispatchToProps =  {
 export default connect(
   null,
   mapDispatchToProps
-)(withRouter(DeleteGroup))
+)(withRouter(GroupDetails))
