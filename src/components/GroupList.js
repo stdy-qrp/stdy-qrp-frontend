@@ -3,15 +3,13 @@ import { connect } from 'react-redux'
 import { getRoom } from '../reducers/roomReducer'
 import { List, Header, Button, Segment } from 'semantic-ui-react'
 import GroupListItem from './GroupListItem'
-import {
-  Link
-} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const GroupList = (props) => {
   return (
     <Segment placeholder textAlign='center'>
       <Header as="h2" textAlign="center">
-            Active Groups
+        Active Groups
       </Header>
       {props.activeGroups.length < 1 ?
         <p>No active groups. Maybe create a group? </p> :
