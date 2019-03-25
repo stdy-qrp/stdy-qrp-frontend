@@ -1,4 +1,4 @@
-import React,{ useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { initGroups } from './reducers/groupReducer'
 import { getRoom, initRooms } from './reducers/roomReducer'

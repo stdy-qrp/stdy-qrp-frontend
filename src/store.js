@@ -8,6 +8,7 @@ const reducer = combineReducers({
   groups: groupReducer,
   resources: roomReducer
 })
+
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 
 export default store

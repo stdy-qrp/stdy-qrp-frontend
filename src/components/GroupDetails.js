@@ -9,6 +9,10 @@ import Moment from 'react-moment'
 const GroupDetails = (props) => {
   const { group } = props
 
+  if (!group) {
+    return null
+  }
+
   const remove = (id) => {
     props.removeGroup(id)
     props.history.push('/')
@@ -37,9 +41,7 @@ const GroupDetails = (props) => {
         <Link to='/'>
           <Button>Cancel</Button>
         </Link>
-        <Button
-          onClick={() => remove(group.id)} negative
-        >End</Button>
+        <Button onClick={() => remove(group.id)} negative>End</Button>
 
       </Grid.Column>
     </Grid>
