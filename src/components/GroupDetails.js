@@ -1,9 +1,10 @@
 import React from 'react'
-import { Grid, Header, Button } from 'semantic-ui-react'
+import { Grid, Header, Button, List, Segment } from 'semantic-ui-react'
 import { removeGroup } from '../reducers/groupReducer'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import Moment from 'react-moment'
 
 const GroupDetails = (props) => {
   const remove = (id) => {
@@ -11,19 +12,35 @@ const GroupDetails = (props) => {
     props.history.push('/')
   }
 
+  const { group } = props
+
   return (
     <Grid verticalAlign='middle'>
       <Grid.Column>
-        <Header as="h2" textAlign="center">
-          Delete Group
-        </Header>
-        <p>You are deleting group: {props.group.name}</p>
+        <Segment>
+          <Header as="h2" textAlign="center">
+            {group.name}
+          </Header>
+          <List.Item>
+            <List.Content>
+              <List.Description>
+                {group.room && (<>{group.room.name}<br/></>)}
+                <Moment format="HH:mm">{group.startTime}</Moment>
+                -
+                <Moment format="HH:mm">{group.endTime}</Moment>
+              </List.Description>
+            </List.Content>
+          </List.Item>
+        </Segment>
+
+        <p>You are ending group: {group.name}</p>
         <Link to='/'>
           <Button>Cancel</Button>
         </Link>
         <Button
-          onClick={() => remove(props.group.id)} negative
-        >Delete</Button>
+          onClick={() => remove(group.id)} negative
+        >End</Button>
+
       </Grid.Column>
     </Grid>
   )

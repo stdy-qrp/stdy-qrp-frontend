@@ -19,7 +19,6 @@ const  App = (props) => {
     props.initGroups()
     props.initRooms()
     getParams()
-
   },[])
 
   const getParams = () => {
