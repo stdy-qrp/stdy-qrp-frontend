@@ -7,6 +7,7 @@ import Body from './components/body'
 import GroupList from './components/GroupList'
 import HeaderBar from './components/HeaderBar'
 import GroupDetails from './components/GroupDetails'
+import RoomSelection from './components/RoomSelection'
 import { Grid, Message, Button, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
@@ -60,13 +61,7 @@ const  App = (props) => {
               <GroupDetails groupId={match.params.id} />
             }/>
             <Route exact path="/selectroom" render={(/* { match } */) =>
-              <div>
-                <h3>Under construction!</h3>
-                <p>Use QR code :)</p>
-                <Link to={'/'}>
-                  <Button default>Back</Button>
-                </Link>
-              </div>
+              <RoomSelection />
             } />
           </Grid.Column>
         </Grid>
@@ -77,7 +72,8 @@ const  App = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    selectedRoom: state.resources.selectedRoom
+    selectedRoom: state.resources.selectedRoom,
+    rooms: state.resources.rooms
   }
 }
 
