@@ -29,7 +29,7 @@ const createNew = async (group, roomId) => {
 }
 
 const remove = async id => {
-  const response = await axios.delete(`${baseUrl}/${id}`)
+  const response = await axios.delete(`${baseUrl}/reservations/${id}`)
   return response.data
 }
 
