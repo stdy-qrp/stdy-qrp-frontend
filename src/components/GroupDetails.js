@@ -33,6 +33,8 @@ const GroupDetails = (props) => {
                 <Moment format="HH:mm">{group.startTime}</Moment>
                 -
                 <Moment format="HH:mm">{group.endTime}</Moment>
+                <br/>
+                {group.user && (<>{group.user.username}</>)}
               </List.Description>
             </List.Content>
           </List.Item>
