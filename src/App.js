@@ -52,9 +52,7 @@ const  App = (props) => {
                 <GroupList />
               </div>
             }/>
-            <Route exact path="/addgroup" render={(/* { match } */) =>
-              <AddGroup />
-            } />
+            <Route path="/addgroup" component={AddGroup} />
             <Route exact path="/details/:id" render={({ match }) =>
               <GroupDetails groupId={match.params.id} />
             }/>
