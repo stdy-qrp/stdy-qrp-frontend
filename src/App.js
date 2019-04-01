@@ -9,11 +9,7 @@ import HeaderBar from './components/HeaderBar'
 import GroupDetails from './components/GroupDetails'
 import RoomSelection from './components/RoomSelection'
 import { Grid, Message, Button, Segment } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
-
-import {
-  BrowserRouter as Router,
-  Route } from 'react-router-dom'
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 
 const  App = (props) => {
   useEffect(() => {
