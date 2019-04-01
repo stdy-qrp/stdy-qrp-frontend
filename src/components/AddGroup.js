@@ -37,7 +37,7 @@ const AddGroup = (props) => {
               <Dropdown
                 name='telegram'
                 placeholder='Select telegram group'
-                options={[{ value: 'DIS', text: 'Designing Interactive Systems' }]}
+                options={[{ value: 'qrp', text: 'Impromptu Study Group' }]}
                 selection
               />
             </Form.Field>
