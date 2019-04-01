@@ -17,7 +17,7 @@ const GroupList = (props) => {
           {props.activeGroups.map(g => <GroupListItem key={g.id} group={g}/>)}
         </List>
       }
-      <Link to={'/addgroup'}>
+      <Link to={'/addgroup'} className={props.selectedRoom === null ? 'disabled-link' : undefined}>
         <Button disabled={props.selectedRoom === null} primary>Add new group</Button>
       </Link>
     </Segment>

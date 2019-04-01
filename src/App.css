@@ -2,7 +2,6 @@
   text-align: center;
 }
 
-
 .App-header {
   background-color: #05668D;
   height: 44px;
@@ -21,6 +20,7 @@
 .App-link {
   color: #61dafb;
 }
+
 h1{
   font-size: 28px;
 }
@@ -32,4 +32,8 @@ h1{
   to {
     transform: rotate(360deg);
   }
+}
+
+.disabled-link {
+  pointer-events: none;
 }
