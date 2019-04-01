@@ -6,7 +6,7 @@ import { Button, Grid, Header, Segment, Form, Dropdown } from 'semantic-ui-react
 
 const AddGroup = (props) => {
 
-  const addGroup = async (event) => {
+  const addGroup = (event) => {
     event.preventDefault()
     const newGroup = {
       name: event.target.groupname.value,
