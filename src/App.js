@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { initGroups } from './reducers/groupReducer'
 import { getRoom, initRooms } from './reducers/roomReducer'
 import './App.css'
-import Body from './components/body'
+import AddGroup from './components/AddGroup'
 import GroupList from './components/GroupList'
 import HeaderBar from './components/HeaderBar'
 import GroupDetails from './components/GroupDetails'
@@ -57,7 +57,7 @@ const  App = (props) => {
               </div>
             }/>
             <Route exact path="/addgroup" render={(/* { match } */) =>
-              <Body />
+              <AddGroup />
             } />
             <Route exact path="/details/:id" render={({ match }) =>
               <GroupDetails groupId={match.params.id} />

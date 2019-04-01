@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 import { Button, Grid, Header, Segment, Form, Dropdown } from 'semantic-ui-react'
 
-const Body = (props) => {
+const AddGroup = (props) => {
 
   const addGroup = async (event) => {
     event.preventDefault()
@@ -64,4 +64,4 @@ const mapDispatchToProps =  {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(Body))
+)(withRouter(AddGroup))
