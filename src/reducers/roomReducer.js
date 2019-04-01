@@ -24,6 +24,7 @@ const initState = {
   selectedRoom: null,
   rooms: []
 }
+
 const groupReducer = (state = initState, action) => {
   switch(action.type){
   case 'INIT':
