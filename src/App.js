@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { initGroups } from './reducers/groupReducer'
 import { getRoom, initRooms } from './reducers/roomReducer'
+import { initChannels } from './reducers/channelReducer'
 import './App.css'
 import AddGroup from './components/AddGroup'
 import GroupList from './components/GroupList'
@@ -15,6 +16,7 @@ const  App = (props) => {
   useEffect(() => {
     props.initGroups()
     props.initRooms()
+    props.initChannels()
     getParams()
   },[])
 
@@ -76,7 +78,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   initGroups,
   getRoom,
-  initRooms
+  initRooms,
+  initChannels
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

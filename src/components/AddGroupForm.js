@@ -8,14 +8,28 @@ const AddGroupForm = (props) => {
 
   const addGroup = async (event) => {
     event.preventDefault()
+
+    // todo: validation and better modal / pop up than this :) 
+    if (!selectedChannel){
+      alert('Select channel, plz')
+      return
+    }
     const newGroup = {
       name: event.target.groupname.value,
-      username: event.target.username.value
+      username: event.target.username.value,
+      channelId: selectedChannel
     }
+
     await props.changeGroup(newGroup, props.selectedRoom.id)
     props.history.push('addgroup/done')
   }
 
+  let selectedChannel;
+
+  const handleSelect =  (e, { value }) => {
+    selectedChannel = value
+  }
+  
   return (
     <>
       <Header as="h2" textAlign="center">
@@ -37,8 +51,9 @@ const AddGroupForm = (props) => {
             <Dropdown
               name='telegram'
               placeholder='Select telegram group'
-              options={[{ value: 'qrp', text: 'Impromptu Study Group' }]}
+              options={props.channels}
               selection
+              onChange = {handleSelect}
             />
           </Form.Field>
           <Link to='/'>
@@ -53,7 +68,16 @@ const AddGroupForm = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    selectedRoom: state.resources.selectedRoom
+    selectedRoom: state.resources.selectedRoom,
+    channels: state.channels.map(c => {
+      console.log(c)
+      return {
+        key: c.channelId,
+        text: c.name.toUpperCase() + ` - ${c.description}`,
+        value: c.channelId
+      }
+
+    })
   }
 }
 
