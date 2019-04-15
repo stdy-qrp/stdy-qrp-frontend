@@ -9,7 +9,7 @@ import GroupList from './components/GroupList'
 import HeaderBar from './components/HeaderBar'
 import GroupDetails from './components/GroupDetails'
 import RoomSelection from './components/RoomSelection'
-import { Grid, Message, Button, Segment } from 'semantic-ui-react'
+import { Grid, Message, Button, Segment, } from 'semantic-ui-react'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 
 const  App = (props) => {
@@ -42,6 +42,16 @@ const  App = (props) => {
     </Segment>
   )
 
+  const sendFeedback = () => (
+    <Segment>
+       <Button>
+       <a href="https://docs.google.com/forms/d/e/1FAIpQLSeyOuBflQfeg0uXfNdofHR74wqHktYReZyH3Mb23IyInBBMFQ/viewform?usp=sf_link" target="_blank" >
+        Provide Feedback
+        </a>
+       </Button>
+    </Segment>
+  )
+
   return (
     <Router>
       <div>
@@ -52,6 +62,7 @@ const  App = (props) => {
               <div>
                 {showInfo()}
                 <GroupList />
+                {sendFeedback()}
               </div>
             }/>
             <Route path="/addgroup" component={AddGroup} />
