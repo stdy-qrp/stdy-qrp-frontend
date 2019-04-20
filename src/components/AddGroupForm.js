@@ -93,39 +93,39 @@ const AddGroupForm = (props) => {
     return [{
       text: 'Osa 0',
       key: 0,
-      value: 0
+      value: 'Osa 0'
     }, {
       text: 'Osa 1',
       key: 1,
-      value: 1
+      value: 'Osa 1'
     }, {
       text: 'Osa 2',
       key: 2,
-      value: 2
+      value: 'Osa 2'
     }, {
       text: 'Osa 3',
       key: 3,
-      value: 3
+      value: 'Osa 3'
     }, {
       text: 'Osa 4',
       key: 4,
-      value: 4
+      value: 'Osa 4'
     }, {
       text: 'Osa 5',
       key: 5,
-      value: 5
+      value: 'Osa 5'
     }, {
       text: 'Osa 6',
       key: 6,
-      value: 6
+      value: 'Osa 6'
     }, {
       text: 'Osa 7',
       key: 7,
-      value: 7
+      value: 'Osa 7'
     }, {
       text: 'Osa 8',
       key: 8,
-      value: 8
+      value: 'Osa 8'
     }]
   }
 const mapStateToProps = (state) => {
