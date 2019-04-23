@@ -91,41 +91,41 @@ const AddGroupForm = (props) => {
 }
   const getGroupOptions = () => {
     return [{
-      text: 'Osa 0',
+      text: 'Osa 0, Web-sovellusten toiminnan perusteet',
       key: 0,
-      value: 'Osa 0'
+      value: 'Osa 0, Web-sovellusten toiminnan perusteet'
     }, {
-      text: 'Osa 1',
+        text: 'Osa 1, Reactin perusteet',
       key: 1,
-      value: 'Osa 1'
+        value: 'Osa 1, Reactin perusteet'
     }, {
-      text: 'Osa 2',
+        text: 'Osa 2, Palvelimen kanssa tapahtuva kommunikointi',
       key: 2,
-      value: 'Osa 2'
+        value: 'Osa 2, Palvelimen kanssa tapahtuva kommunikointi'
     }, {
-      text: 'Osa 3',
+        text: 'Osa 3, Palvelimen ohjelmointi NodeJS:n Express-kirjastolla',
       key: 3,
-      value: 'Osa 3'
+        value: 'Osa 3, Palvelimen ohjelmointi NodeJS:n Express-kirjastolla'
     }, {
-      text: 'Osa 4',
+        text: 'Osa 4, Express-sovellusten testaaminen, käyttäjänhallinta',
       key: 4,
-      value: 'Osa 4'
+        value: 'Osa 4, Express-sovellusten testaaminen, käyttäjänhallinta'
     }, {
-      text: 'Osa 5',
+        text: 'Osa 5, React-sovelluksen testaaminen, custom hookit',
       key: 5,
-      value: 'Osa 5'
+        value: 'Osa 5, React-sovelluksen testaaminen, custom hookit'
     }, {
-      text: 'Osa 6',
+        text: 'Osa 6, Sovelluksen tilan hallinta Redux-kirjastolla',
       key: 6,
-      value: 'Osa 6'
+      value: 'Osa 6, Sovelluksen tilan hallinta Redux-kirjastolla'
     }, {
-      text: 'Osa 7',
+      text: 'Osa 7, React router, tyylikirjastot ja webpack',
       key: 7,
-      value: 'Osa 7'
+        value: 'Osa 7, React router, tyylikirjastot ja webpack'
     }, {
-      text: 'Osa 8',
+      text: 'Osa 8, GraphQL',
       key: 8,
-      value: 'Osa 8'
+      value: 'Osa 8, GraphQL'
     }]
   }
 const mapStateToProps = (state) => {
