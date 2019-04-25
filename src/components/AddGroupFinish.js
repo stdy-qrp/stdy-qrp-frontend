@@ -8,7 +8,7 @@ const AddGroupFinish = () => {
       <h3>Group created!</h3>
       <p>
         We&apos;ve informed your friends at&nbsp;
-        <a target="_blank" rel="noopener noreferrer" href="https://t.me/stdy_qrp">t.me/stdy_qrp</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://t.me/joinchat/HvqK1VaXQKchMpcHRIW2Ig">t.me/stdy_qrp</a>
       </p>
       <Link to={'/'}>
         <Button primary>Done</Button>
