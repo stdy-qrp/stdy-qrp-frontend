@@ -12,13 +12,13 @@ import RoomSelection from './components/RoomSelection'
 import { Grid, Message, Button, Segment, } from 'semantic-ui-react'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 
-const  App = (props) => {
+const App = (props) => {
   useEffect(() => {
     props.initGroups()
     props.initRooms()
     props.initChannels()
     getParams()
-  },[])
+  }, [])
 
   const getParams = () => {
     const searchParams = new URLSearchParams(window.location.search)
@@ -29,7 +29,7 @@ const  App = (props) => {
   }
 
   const showInfo = () => (
-    <Segment>
+    <Segment textAlign='center'>
       <Message positive>
         {props.selectedRoom ? (
           <Message.Header>Looks like you&apos;re in {props.selectedRoom.name}</Message.Header>
@@ -43,12 +43,12 @@ const  App = (props) => {
   )
 
   const sendFeedback = () => (
-    <Segment>
-       <Button>
-       <a href="https://docs.google.com/forms/d/e/1FAIpQLSeyOuBflQfeg0uXfNdofHR74wqHktYReZyH3Mb23IyInBBMFQ/viewform?usp=sf_link" target="_blank" >
+    <Segment textAlign="center">
+      <Button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeyOuBflQfeg0uXfNdofHR74wqHktYReZyH3Mb23IyInBBMFQ/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer" >
         Provide Feedback
         </a>
-       </Button>
+      </Button>
     </Segment>
   )
 
